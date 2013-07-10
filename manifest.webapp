@@ -1,0 +1,13 @@
+{
+  "name": "Jukebox",
+  "description": "Like a Jukebox",
+  "launch_path":"/index.html",
+  "developer": {
+    "name": "Eiji Hirokawa",
+    "url": "http://www2.itc.kansai-u.ac.jp/~k947032/"
+  },
+  "default_locale": "ja",
+  "icons": {
+    "128": "/images/icon.png"
+  }
+}
