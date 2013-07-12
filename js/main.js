@@ -10,11 +10,10 @@ $(function() {
     deviceHeight = $(window).height();
     
     console.log("width="+deviceWidth+" height="+deviceHeight);
-        
+    
 });
 
 function search(){
-
     $("#icon").css("display","none");
     var page = 1;  //サムネイル候補の１番目の動画を表示させる 
     var pageSize = 2;   //サムネイル表示数
@@ -32,9 +31,9 @@ function search(){
         q: query,  
         alt: 'json-in-script',  // atom, rss, json, json-in-script(jsonp)  
         format: '1'             // 1-mobile, 5-swf, 6-mobile rtsp  
-    }  
+    };
 
-  
+    
     console.log(params);
     $.getJSON(url2, params, function (data) {  
     	var feed = data.feed;  
@@ -46,7 +45,7 @@ function search(){
             var url = item.content.src;  
             var thumbnailUrl = item.media$group.media$thumbnail[0].url;                 
             playerUrl = item.media$group.media$content[0].url;
-                        
+            
             console.log(playerUrl);
             html.push('<li><a href="javascript:loadVideo(\'',playerUrl,'\',true)"title="',title,'"><img src="',thumbnailUrl,'"/></a></li>');
 	});
@@ -74,10 +73,7 @@ function search(){
         } else {
             player.loadVideoById(id);
         }
-	
-
     });      
-    
 }
 
 
@@ -94,7 +90,7 @@ function plus(){
 	}
     }
     xmlHttp.onreadystatechange = checkStatus;
-    xmlHttp.open("GET",frm1.result.value+'.txt' , true);
+    xmlHttp.open("GET", "data/" + frm1.result.value+'.txt' , true);
     xmlHttp.send(null);
 }
 
@@ -128,7 +124,7 @@ function onYouTubePlayerAPIReady() {
         } 
     });
 }
-    
+
 function onPlayerReady(evt) {
     evt.target.playVideo();
 }
